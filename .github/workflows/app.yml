@@ -21,6 +21,15 @@ jobs:
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
+      # Cache and restore the dependencies
+      - uses: actions/cache@v2
+        with:
+         path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+         key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+         restore-keys: |
+          ${{ runner.os }}-gradle-
       - name: Set up Java
         uses: actions/setup-java@v1
         with:
