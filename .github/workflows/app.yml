@@ -21,6 +21,10 @@ jobs:
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
+      - name: Set up Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: "12.x"
       - name: Build the app
         run: ./gradlew build
       - name: Upload APK
