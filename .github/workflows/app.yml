@@ -25,10 +25,10 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: "12.x"
-      - name: Build the app
-        run: ./gradlew build
-      - name: Upload APK
+      - name: Build Debug APK
+        run: ./gradlew assembleDebug
+      - name: Get Debug APK
         uses: actions/upload-artifact@v1
         with:
-          name: app
-          path: build/app/outputs/apk/release/app-release.apk
+          name: app-debug
+          path: app/build/outputs/apk/debug/app-debug.apk
