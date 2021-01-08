@@ -27,6 +27,8 @@ jobs:
           java-version: "12.x"
       - name: Build Debug APK
         run: ./gradlew clean assembleDebug
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
       - name: Get Debug APK
         uses: actions/upload-artifact@v1
         with:
